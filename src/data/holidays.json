@@ -1,0 +1,21 @@
+[
+    {
+      "id": "1",
+      "name": "New Year",
+      "date": "January 1, 2024",
+      "description": "Start the year with joy and celebration!"
+    },
+    {
+      "id": "2",
+      "name": "Christmas",
+      "date": "December 25, 2024",
+      "description": "Celebrate the joy of Christmas with family and friends."
+    },
+    {
+      "id": "3",
+      "name": "Eid al-Fitr",
+      "date": "April 10, 2024",
+      "description": "Celebrate the end of Ramadan with prayers and feasts."
+    }
+  ]
+  

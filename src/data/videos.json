@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "title": "Learn React Native Basics",
+      "description": "Start with the basics of React Native.",
+      "thumbnail": "react_native_basics",
+      "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc"
+    },
+    {
+      "id": "2",
+      "title": "React Native Navigation",
+      "description": "Master navigation in React Native apps.",
+      "thumbnail": "react_navigation",
+      "url": "https://www.youtube.com/watch?v=G-Zv9K3Ofbw"
+    },
+    {
+      "id": "3",
+      "title": "React Native UI Design",
+      "description": "Create beautiful UI in React Native.",
+      "thumbnail": "react_ui_design",
+      "url": "https://www.youtube.com/watch?v=QSyIZ2xVwfk"
+    }
+  ]
+  

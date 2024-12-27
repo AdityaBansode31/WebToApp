@@ -1,0 +1,11 @@
+{
+    "birthdays": [
+      { "name": "John Doe", "date": "December 20" },
+      { "name": "Jane Smith", "date": "December 22" }
+    ],
+    "events": [
+      { "title": "Company Meeting", "date": "December 21" },
+      { "title": "Christmas Party", "date": "December 24" }
+    ]
+  }
+  

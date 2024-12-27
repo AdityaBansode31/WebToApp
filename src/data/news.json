@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Milestone Achieved: 1 Million Users!",
+    "description": "We are thrilled to announce that we have reached 1 million users across our platform.",
+    "image": "milestone"
+  },
+  {
+    "id": "2",
+    "title": "Employee of the Month: John Doe",
+    "description": "Congratulations to John Doe for his outstanding performance and dedication.",
+    "image": "employee_of_month"
+  },
+  {
+    "id": "3",
+    "title": "Partnership with TechCorp",
+    "description": "We are excited to collaborate with TechCorp to bring innovative solutions to our customers.",
+    "image": "partnership"
+  },
+  {
+    "id": "4",
+    "title": "Upcoming Webinar: Industry Trends 2024",
+    "description": "Join us for an exclusive webinar to discuss the latest trends in the industry.",
+    "image": "webinar"
+  },
+  {
+    "id": "5",
+    "title": "CSR Initiative: Green Earth Campaign",
+    "description": "Our company has launched a new campaign to promote sustainability and environmental awareness.",
+    "image": "csr_initiative"
+  }
+]

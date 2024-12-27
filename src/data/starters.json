@@ -1,0 +1,27 @@
+[
+    {
+      "id": "1",
+      "name": "Aditya Bansode",
+      "role": "Software Engineer",
+      "image": "profile2",
+      "department": "Development",
+      "joinedDate": "2024-12-09"
+    },
+    {
+      "id": "2",
+      "name": "Rohan",
+      "role": "Marketing Lead",
+      "image": "profile",
+      "department": "Marketing",
+      "joinedDate": "2023-11-15"
+    },
+    {
+      "id": "3",
+      "name": "Emma W.",
+      "role": "Product Manager",
+      "image": "lady",
+      "department": "Product",
+      "joinedDate": "2023-12-05"
+    }
+  ]
+  

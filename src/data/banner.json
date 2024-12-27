@@ -1,0 +1,27 @@
+{
+    "banners": [
+      {
+        "id": "1",
+        "image": "banner1",
+        "text": "The Workplace where fun fuels productivity"
+      },
+      {
+        "id": "2",
+        "image": "banner2",
+        "text": "Achieving excellence together"
+      }
+    ],
+    "recentEvents": [
+      {
+        "id": "1",
+        "title": "Company Holiday Party",
+        "date": "December 25, 2024"
+      },
+      {
+        "id": "2",
+        "title": "Team Building Event",
+        "date": "January 15, 2025"
+      }
+    ]
+  }
+  
