@@ -130,7 +130,7 @@ const News = () => {
   }, []);
 
   return (
-    <View>
+    <View style = {styles.container}>
       <Text style={commonStyles.sectionTitle}>News</Text>
       <FlatList
         data={newsItems}
@@ -161,6 +161,9 @@ const News = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 10, // Apply padding only on the left
+  },
   newsCard: {
     width: 300,
     marginRight: 15,

@@ -225,6 +225,14 @@ const ProfileModal = ({ visible, onClose, navigate }) => { // Accept navigate as
         </View>
 
         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+        <TouchableOpacity
+            style={styles.listItem}
+            onPress={() => handleNavigation('RecursiveApp')} // Navigate to Events screen
+          >
+            <FontAwesome name="home" size={20} color="white" />
+            <Text style={styles.listText}>Home</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.listItem}
             onPress={() => handleNavigation('Events')} // Navigate to Events screen

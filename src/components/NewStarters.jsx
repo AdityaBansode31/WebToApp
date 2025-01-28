@@ -193,7 +193,7 @@ const NewStarters = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={commonStyles.sectionTitle}>New Starters</Text>
       <FlatList
         data={starters}
@@ -242,6 +242,9 @@ const NewStarters = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 10, // Add padding to prevent elements from touching edges
+  },
   starterCard: {
     flexDirection: 'row',
     alignItems: 'center',

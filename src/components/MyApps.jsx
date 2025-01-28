@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome for icons
 
 const MyApps = () => {
@@ -11,18 +11,30 @@ const MyApps = () => {
     { id: '5', name: 'Help', color: '#6A5ACD', icon: 'life-ring' },
   ];
 
+  const screenWidth = Dimensions.get('window').width;
+  const isTablet = screenWidth >= 600; // Adjust breakpoint as needed
+
+  const cardWidth = isTablet ? (screenWidth - 40) / 3 : (screenWidth - 20) / 2; // Adjust fractions and margins
+  const cardHeight = isTablet ? 150 : 100;
+
+  const numColumns = isTablet ? 3 : 1;
+
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>My Apps</Text>
       <FlatList
         data={apps}
+        numColumns={numColumns}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity style={[styles.appCard, { backgroundColor: item.color }]}>
-            <FontAwesome name={item.icon} size={24} color="#FFF" style={styles.icon} />
-            <Text style={styles.appText}>{item.name}</Text>
+          <TouchableOpacity style={[
+              styles.appCard,
+              { backgroundColor: item.color, width: cardWidth, height: cardHeight },
+            ]}>
+            <FontAwesome name={item.icon} size={isTablet ? 32 : 24} color="#FFF" style={styles.icon} />
+            <Text style={[styles.appText, { fontSize: isTablet ? 16 : 14 }]}>{item.name}</Text>
           </TouchableOpacity>
         )}
       />
@@ -31,6 +43,10 @@ const MyApps = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 10, // Consistent padding
+    flex: 1,
+  },
   title: {
     fontSize: 18,
     fontWeight: 'bold',

@@ -120,7 +120,7 @@ const Videos = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={commonStyles.sectionTitle}>Videos</Text>
       <FlatList
         data={videoItems}
@@ -145,6 +145,9 @@ const Videos = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 10, // Apply padding only on the left
+  },
   videoCard: {
     width: 300,
     marginRight: 15,

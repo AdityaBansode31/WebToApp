@@ -96,7 +96,7 @@
     );
 
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={commonStyles.sectionTitle}>Images</Text>
         <FlatList
           data={imageItems}
@@ -110,6 +110,9 @@
   };
 
   const styles = StyleSheet.create({
+    container: {
+    paddingLeft: 10, // Apply padding only on the left
+  },
     imageCard: {
       width: 200, // Smaller width compared to News cards
       marginRight: 10,

@@ -626,7 +626,7 @@
 // });
 
 import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import {
@@ -717,6 +717,25 @@ export default function App() {
   const toggleNotification = () => setNotificationVisible(!notificationVisible);
   const handleProfileClick = () => setModalVisible(true);
 
+  const renderHeader = (title) => {
+    return (
+      <LinearGradient
+      colors={['#000f5e', '#003c8f']}
+      style={styles.headerGradient}
+    >
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={handleProfileClick} style={styles.menuIcon}>
+          <FontAwesome name="bars" size={25} color="#fff" />
+        </TouchableOpacity>
+        <View style={styles.titleContainer}> {/* New View for the title */}
+          <Text style={styles.headerText}>{title}</Text>
+        </View>
+        <View style={{ width: 40 }} />
+      </View>
+    </LinearGradient>
+    );
+  };
+
   return (
     <NavigationContainer ref={navigationRef}>
       {/* Sidebar Modal */}
@@ -739,6 +758,8 @@ export default function App() {
           name="Events"
           component={EventsScreen}
           options={{
+            
+
             header: () => (
               <LinearGradient
                 colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
@@ -805,6 +826,42 @@ export default function App() {
             ),
           }}
         />
+        <Stack.Screen
+          name="RecursiveApp"
+          options={{ headerShown: false }}
+        >
+          {() => (
+            <NavigationIndependentTree> {/* Wrap in NavigationIndependentTree */}
+              <App /> {/* Recursive rendering */}
+            </NavigationIndependentTree>
+          )}
+        </Stack.Screen>
+
+        {/* <Stack.Screen
+          name="Events"
+          component={EventsScreen}
+          options={{ header: () => renderHeader("Events") }}
+        />
+        <Stack.Screen
+          name="Gallery"
+          component={GalleryScreen}
+          options={{ header: () => renderHeader("Gallery") }}
+        />
+        <Stack.Screen
+          name="Articles"
+          component={ArticlesScreen}
+          options={{ header: () => renderHeader("Articles") }}
+        />
+        <Stack.Screen
+          name="VendorUpdates"
+          component={VendorUpdatesScreen}
+          options={{ header: () => renderHeader("VendorUpdates") }}
+        />
+        <Stack.Screen
+          name="MyCalendar"
+          component={MyCalendarScreen}
+          options={{ header: () => renderHeader("MyCalendar") }}
+        /> */}
       </Stack.Navigator>
 
       {/* Notification Modal */}
@@ -849,16 +906,24 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   headerGradient: {
-    height: 100, // Set height for the header
-    justifyContent: 'center',
+    height: 60, // Reduced height
+    justifyContent: 'center',  // Center vertically
+    paddingHorizontal: 20, // Consistent horizontal padding
+  },
+  headerContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 20,
-    borderBottomWidth: 1,
-    borderColor: '#ddd',
+    justifyContent: 'space-between', // Distribute space evenly
+    width: '100%',
+  },
+  titleContainer: { // Style for the title container
+    flex: 1, // Allow title to take up available space
+    alignItems: 'center', // Center the text horizontally within its container
+    justifyContent: 'center', // Center the text vertically
   },
   headerText: {
     color: '#fff',
-    fontSize: 22,
+    fontSize: 18, // Slightly smaller font size
     fontWeight: 'bold',
   },
   modalOverlay: {
