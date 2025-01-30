@@ -1,4 +1,165 @@
 
+// // import React, { useRef } from 'react';
+// // import {
+// //   Animated,
+// //   Text,
+// //   View,
+// //   Image,
+// //   TouchableOpacity,
+// //   StyleSheet,
+// //   Dimensions,
+// //   ScrollView,
+// // } from 'react-native';
+// // import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// // import LinearGradient from 'react-native-linear-gradient';
+
+// // const { width } = Dimensions.get('window');
+
+// // const ProfileModal = ({ visible, onClose }) => {
+// //   const translateX = useRef(new Animated.Value(-width)).current;
+
+// //   React.useEffect(() => {
+// //     if (visible) {
+// //       Animated.timing(translateX, {
+// //         toValue: 0,
+// //         duration: 300,
+// //         useNativeDriver: true,
+// //       }).start();
+// //     } else {
+// //       Animated.timing(translateX, {
+// //         toValue: -width,
+// //         duration: 300,
+// //         useNativeDriver: true,
+// //       }).start();
+// //     }
+// //   }, [visible]);
+
+// //   return (
+// //     <Animated.View
+// //       style={[
+// //         styles.sidebarContainer,
+// //         { transform: [{ translateX }] },
+// //       ]}
+// //     >
+// //       {/* Dark Blue Ocean Gradient */}
+// //       <LinearGradient
+// //         colors={['rgb(0,37,60)', 'rgb(0,68,82)', 'rgb(0,128,128)']}
+// //         style={styles.gradientBackground}
+// //       >
+// //         {/* Close Button */}
+// //         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+// //           <Text style={styles.closeText}>X</Text>
+// //         </TouchableOpacity>
+
+// //         {/* Header Section */}
+// //         <View style={styles.headerContainer}>
+// //           <Image
+// //             source={require('../assets/profile2.png')}
+// //             style={styles.profileImage}
+// //           />
+// //           <Text style={styles.name}>Aditya Bansode</Text>
+// //           <Text style={styles.designation}>Software Developer</Text>
+// //         </View>
+
+// //         {/* Scrollable List */}
+// //         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="home" size={20} color="white" />
+// //             <Text style={styles.listText}>Home</Text>
+// //           </TouchableOpacity>
+
+// //           {/* Events */}
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="calendar" size={20} color="white" />
+// //             <Text style={styles.listText}>Events</Text>
+// //           </TouchableOpacity>
+
+// //           {/* Gallery */}
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="folder" size={20} color="white" />
+// //             <Text style={styles.listText}>Gallery</Text>
+// //           </TouchableOpacity>
+
+// //           {/* Other Options */}
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="file-text" size={20} color="white" />
+// //             <Text style={styles.listText}>Articles</Text>
+// //           </TouchableOpacity>
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="truck" size={20} color="white" />
+// //             <Text style={styles.listText}>Vendor Updates</Text>
+// //           </TouchableOpacity>
+// //           <TouchableOpacity style={styles.listItem}>
+// //             <FontAwesome name="calendar-check-o" size={20} color="white" />
+// //             <Text style={styles.listText}>My Calendar</Text>
+// //           </TouchableOpacity>
+// //         </ScrollView>
+// //       </LinearGradient>
+// //     </Animated.View>
+// //   );
+// // };
+
+// // const styles = StyleSheet.create({
+// //   sidebarContainer: {
+// //     position: 'absolute',
+// //     top: 0,
+// //     left: 0,
+// //     height: '100%',
+// //     width: width * 0.75,
+// //     zIndex: 1000,
+// //   },
+// //   gradientBackground: {
+// //     flex: 1,
+// //   },
+// //   closeButton: {
+// //     position: 'absolute',
+// //     top: 10,
+// //     right: 10,
+// //     zIndex: 1,
+// //   },
+// //   closeText: {
+// //     fontSize: 18,
+// //     fontWeight: 'bold',
+// //     color: 'white',
+// //   },
+// //   headerContainer: {
+// //     alignItems: 'center',
+// //     paddingVertical: 20,
+// //   },
+// //   profileImage: {
+// //     width: 80,
+// //     height: 80,
+// //     borderRadius: 40,
+// //   },
+// //   name: {
+// //     fontSize: 20,
+// //     fontWeight: 'bold',
+// //     color: 'white',
+// //     marginTop: 5,
+// //   },
+// //   designation: {
+// //     fontSize: 16,
+// //     color: 'white',
+// //   },
+// //   scrollContainer: {
+// //     paddingHorizontal: 10,
+// //   },
+// //   listItem: {
+// //     flexDirection: 'row',
+// //     alignItems: 'center',
+// //     paddingVertical: 15,
+// //     borderBottomWidth: 1,
+// //     borderBottomColor: 'rgba(255,255,255,0.2)',
+// //   },
+// //   listText: {
+// //     fontSize: 16,
+// //     color: 'white',
+// //     marginLeft: 15,
+// //   },
+// // });
+
+// // export default ProfileModal;
+
 // import React, { useRef } from 'react';
 // import {
 //   Animated,
@@ -15,7 +176,7 @@
 
 // const { width } = Dimensions.get('window');
 
-// const ProfileModal = ({ visible, onClose }) => {
+// const ProfileModal = ({ visible, onClose, navigate }) => { // Accept navigate as a prop
 //   const translateX = useRef(new Animated.Value(-width)).current;
 
 //   React.useEffect(() => {
@@ -34,6 +195,11 @@
 //     }
 //   }, [visible]);
 
+//   const handleNavigation = (screenName) => {
+//     onClose(); // Close the sidebar
+//     navigate(screenName); // Navigate to the selected screen
+//   };
+
 //   return (
 //     <Animated.View
 //       style={[
@@ -41,17 +207,14 @@
 //         { transform: [{ translateX }] },
 //       ]}
 //     >
-//       {/* Dark Blue Ocean Gradient */}
 //       <LinearGradient
 //         colors={['rgb(0,37,60)', 'rgb(0,68,82)', 'rgb(0,128,128)']}
 //         style={styles.gradientBackground}
 //       >
-//         {/* Close Button */}
 //         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
 //           <Text style={styles.closeText}>X</Text>
 //         </TouchableOpacity>
 
-//         {/* Header Section */}
 //         <View style={styles.headerContainer}>
 //           <Image
 //             source={require('../assets/profile2.png')}
@@ -61,35 +224,47 @@
 //           <Text style={styles.designation}>Software Developer</Text>
 //         </View>
 
-//         {/* Scrollable List */}
 //         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-//           <TouchableOpacity style={styles.listItem}>
+//         <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('RecursiveApp')} // Navigate to Events screen
+//           >
 //             <FontAwesome name="home" size={20} color="white" />
 //             <Text style={styles.listText}>Home</Text>
 //           </TouchableOpacity>
 
-//           {/* Events */}
-//           <TouchableOpacity style={styles.listItem}>
+//           <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('Events')} // Navigate to Events screen
+//           >
 //             <FontAwesome name="calendar" size={20} color="white" />
 //             <Text style={styles.listText}>Events</Text>
 //           </TouchableOpacity>
-
-//           {/* Gallery */}
-//           <TouchableOpacity style={styles.listItem}>
+//           <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('Gallery')} // Navigate to Gallery screen
+//           >
 //             <FontAwesome name="folder" size={20} color="white" />
 //             <Text style={styles.listText}>Gallery</Text>
 //           </TouchableOpacity>
-
-//           {/* Other Options */}
-//           <TouchableOpacity style={styles.listItem}>
+//           <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('Articles')} // Navigate to Articles (placeholder)
+//           >
 //             <FontAwesome name="file-text" size={20} color="white" />
 //             <Text style={styles.listText}>Articles</Text>
 //           </TouchableOpacity>
-//           <TouchableOpacity style={styles.listItem}>
+//           <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('VendorUpdates')} // Navigate to Vendor Updates (placeholder)
+//           >
 //             <FontAwesome name="truck" size={20} color="white" />
 //             <Text style={styles.listText}>Vendor Updates</Text>
 //           </TouchableOpacity>
-//           <TouchableOpacity style={styles.listItem}>
+//           <TouchableOpacity
+//             style={styles.listItem}
+//             onPress={() => handleNavigation('MyCalendar')} // Navigate to My Calendar (placeholder)
+//           >
 //             <FontAwesome name="calendar-check-o" size={20} color="white" />
 //             <Text style={styles.listText}>My Calendar</Text>
 //           </TouchableOpacity>
@@ -159,8 +334,7 @@
 // });
 
 // export default ProfileModal;
-
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   Animated,
   Text,
@@ -168,18 +342,18 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   ScrollView,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const { width } = Dimensions.get('window');
+const ProfileModal = ({ visible, onClose, navigate }) => {
+  const maxSidebarWidth = 400; // Maximum width for larger screens (e.g., tablets)
+  const sidebarWidth = Math.min(wp('75%'), maxSidebarWidth); // Use 75% of screen width or maxSidebarWidth, whichever is smaller
+  const translateX = useRef(new Animated.Value(-sidebarWidth)).current;
 
-const ProfileModal = ({ visible, onClose, navigate }) => { // Accept navigate as a prop
-  const translateX = useRef(new Animated.Value(-width)).current;
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (visible) {
       Animated.timing(translateX, {
         toValue: 0,
@@ -188,23 +362,23 @@ const ProfileModal = ({ visible, onClose, navigate }) => { // Accept navigate as
       }).start();
     } else {
       Animated.timing(translateX, {
-        toValue: -width,
+        toValue: -sidebarWidth,
         duration: 300,
         useNativeDriver: true,
       }).start();
     }
-  }, [visible]);
+  }, [visible, sidebarWidth]);
 
   const handleNavigation = (screenName) => {
-    onClose(); // Close the sidebar
-    navigate(screenName); // Navigate to the selected screen
+    onClose();
+    navigate(screenName);
   };
 
   return (
     <Animated.View
       style={[
         styles.sidebarContainer,
-        { transform: [{ translateX }] },
+        { width: sidebarWidth, transform: [{ translateX }] },
       ]}
     >
       <LinearGradient
@@ -218,55 +392,62 @@ const ProfileModal = ({ visible, onClose, navigate }) => { // Accept navigate as
         <View style={styles.headerContainer}>
           <Image
             source={require('../assets/profile2.png')}
-            style={styles.profileImage}
+            style={[
+              styles.profileImage,
+              { width: wp('20%'), height: wp('20%') },
+            ]}
           />
           <Text style={styles.name}>Aditya Bansode</Text>
           <Text style={styles.designation}>Software Developer</Text>
         </View>
 
         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-        <TouchableOpacity
+          <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('RecursiveApp')} // Navigate to Events screen
+            onPress={() => handleNavigation('RecursiveApp')}
           >
-            <FontAwesome name="home" size={20} color="white" />
-            <Text style={styles.listText}>Home</Text>
+            <FontAwesome name="home" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>Home</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('Events')} // Navigate to Events screen
+            onPress={() => handleNavigation('Events')}
           >
-            <FontAwesome name="calendar" size={20} color="white" />
-            <Text style={styles.listText}>Events</Text>
+            <FontAwesome name="calendar" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>Events</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('Gallery')} // Navigate to Gallery screen
+            onPress={() => handleNavigation('Gallery')}
           >
-            <FontAwesome name="folder" size={20} color="white" />
-            <Text style={styles.listText}>Gallery</Text>
+            <FontAwesome name="folder" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>Gallery</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('Articles')} // Navigate to Articles (placeholder)
+            onPress={() => handleNavigation('Articles')}
           >
-            <FontAwesome name="file-text" size={20} color="white" />
-            <Text style={styles.listText}>Articles</Text>
+            <FontAwesome name="file-text" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>Articles</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('VendorUpdates')} // Navigate to Vendor Updates (placeholder)
+            onPress={() => handleNavigation('VendorUpdates')}
           >
-            <FontAwesome name="truck" size={20} color="white" />
-            <Text style={styles.listText}>Vendor Updates</Text>
+            <FontAwesome name="truck" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>Vendor Updates</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.listItem}
-            onPress={() => handleNavigation('MyCalendar')} // Navigate to My Calendar (placeholder)
+            onPress={() => handleNavigation('MyCalendar')}
           >
-            <FontAwesome name="calendar-check-o" size={20} color="white" />
-            <Text style={styles.listText}>My Calendar</Text>
+            <FontAwesome name="calendar-check-o" size={wp('6%')} color="white" />
+            <Text style={[styles.listText, { fontSize: wp('4%') }]}>My Calendar</Text>
           </TouchableOpacity>
         </ScrollView>
       </LinearGradient>
@@ -280,7 +461,6 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     height: '100%',
-    width: width * 0.75,
     zIndex: 1000,
   },
   gradientBackground: {
@@ -302,18 +482,16 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   profileImage: {
-    width: 80,
-    height: 80,
     borderRadius: 40,
   },
   name: {
-    fontSize: 20,
+    fontSize: wp('5%'), // Responsive font size
     fontWeight: 'bold',
     color: 'white',
     marginTop: 5,
   },
   designation: {
-    fontSize: 16,
+    fontSize: wp('4%'), // Responsive font size
     color: 'white',
   },
   scrollContainer: {
@@ -327,11 +505,9 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(255,255,255,0.2)',
   },
   listText: {
-    fontSize: 16,
     color: 'white',
     marginLeft: 15,
   },
 });
 
 export default ProfileModal;
-  

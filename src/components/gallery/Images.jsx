@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, FlatList, Modal, TouchableOpacity } from 'react-native';
-import commonStyles from '../../styles/commonStyles'; // Assuming you have common styles
+import { View, Image, StyleSheet, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import imageData from '../../data/images.json';
 
 // Image mapping for static imports
@@ -66,17 +66,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
-    padding: 10, // Add padding around the screen
+    padding: wp('3%'), // Add responsive padding around the screen
   },
   flatListContainer: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width: 100, // Set a smaller width for images
-    height: 100, // Smaller height to fit in grid
-    margin: 5, // Space between images
-    borderRadius: 10, // Optional rounding of corners
+    width: wp('28%'), // Set responsive width for images
+    height: wp('28%'), // Set responsive height for images
+    margin: wp('1%'), // Space between images
+    borderRadius: wp('2.5%'), // Optional rounding of corners
     resizeMode: 'cover', // Ensure the image covers the space properly
   },
   modalOverlay: {
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent background
   },
   fullscreenImage: {
-    width: '90%', // Image takes up most of the screen
-    height: '80%', // Image height is proportionally 80% of the screen
+    width: wp('90%'), // Image takes up most of the screen
+    height: hp('80%'), // Image height is proportionally 80% of the screen
     resizeMode: 'contain', // Image fits in container without stretching
   },
 });

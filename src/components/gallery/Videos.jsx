@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Linking } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import commonStyles from '../../styles/commonStyles';
 import videoData from '../../data/videos.json';
 
@@ -50,28 +51,31 @@ const Videos = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Take up the full available height
-    padding: 10, // Add padding around the screen
+    padding: wp('3%'), // Add responsive padding around the screen
   },
   videoItem: {
-    marginBottom: 20, // Space between video items
+    marginBottom: hp('2%'), // Space between video items
+    width: wp('90%'), // Responsive width for video items
+    maxWidth: 600, // Max width for tablets and larger screens
+    alignSelf: 'center', // Center the card horizontally
   },
   videoImage: {
     width: '100%',
-    height: 180,
-    borderRadius: 10, // Optional, adds rounded corners
-    marginBottom: 10, // Space between image and text
+    height: hp('25%'), // Responsive height for video images
+    borderRadius: wp('2.5%'), // Optional, adds rounded corners
+    marginBottom: hp('1.5%'), // Space between image and text
   },
   textContainer: {
-    padding: 10,
+    padding: wp('2%'),
   },
   videoTitle: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     fontWeight: 'bold',
     color: '#004A8F',
-    marginBottom: 5,
+    marginBottom: hp('0.5%'),
   },
   videoDescription: {
-    fontSize: 14,
+    fontSize: wp('3.5%'),
     color: '#555555',
   },
 });

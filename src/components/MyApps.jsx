@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Dimensions } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome for icons
 
 const MyApps = () => {
@@ -31,10 +32,10 @@ const MyApps = () => {
         renderItem={({ item }) => (
           <TouchableOpacity style={[
               styles.appCard,
-              { backgroundColor: item.color, width: cardWidth, height: cardHeight },
+              { backgroundColor: item.color, width: wp('45%'), height: cardHeight },
             ]}>
-            <FontAwesome name={item.icon} size={isTablet ? 32 : 24} color="#FFF" style={styles.icon} />
-            <Text style={[styles.appText, { fontSize: isTablet ? 16 : 14 }]}>{item.name}</Text>
+            <FontAwesome name={item.icon} color="#FFF" style={styles.icon} />
+            <Text style={styles.appText}>{item.name}</Text>
           </TouchableOpacity>
         )}
       />
@@ -44,34 +45,33 @@ const MyApps = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: 10, // Consistent padding
+    paddingLeft: wp('3%'), // Consistent responsive padding
     flex: 1,
   },
   title: {
-    fontSize: 18,
+    fontSize: wp('5%'), // Responsive font size
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: hp('2%'),
     textAlign: 'center',
     color: '#004A8F',
   },
   appCard: {
-    padding: 20,
-    borderRadius: 10,
-    marginHorizontal: 5,
+    padding: wp('5%'),
+    borderRadius: wp('2.5%'),
+    marginHorizontal: wp('2%'),
     alignItems: 'center', // Center the icon and text
     justifyContent: 'center', // Center the icon and text
-    width: 120, // Set a fixed width for consistency
-    height: 120, // Set a fixed height for consistency
+    maxWidth: 200, // Max width for app cards on larger screens
   },
   appText: {
     color: '#FFF',
     fontWeight: 'bold',
-    marginTop: 10, // Add some spacing between the icon and text
+    marginTop: hp('1%'), // Add some spacing between the icon and text
     textAlign: 'center', // Center the text
-    fontSize: 14, // Adjust font size for readability
+    fontSize: wp('4%'), // Responsive font size
   },
   icon: {
-    marginBottom: 5, // Space between the icon and text
+    marginBottom: hp('0.5%'), // Space between the icon and text
   },
 });
 

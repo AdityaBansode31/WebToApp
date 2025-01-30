@@ -649,6 +649,8 @@ import VendorUpdatesScreen from './src/screens/VendorUpdatesScreen';
 import MyCalendarScreen from './src/screens/MyCalendarScreen';
 import LinearGradient from 'react-native-linear-gradient'; // Importing LinearGradient
 
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -702,7 +704,7 @@ const BottomTabs = ({ handleProfileClick }) => (
             style={styles.tabButton}
             onPress={handleProfileClick}
           >
-            <FontAwesome name="user" size={25} color="#fff" />
+            <FontAwesome name="user" size={wp('6%')} color="#fff" />
           </TouchableOpacity>
         ),
       }}
@@ -725,7 +727,7 @@ export default function App() {
     >
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={handleProfileClick} style={styles.menuIcon}>
-          <FontAwesome name="bars" size={25} color="#fff" />
+          <FontAwesome name="bars" size={wp('6%')} color="#fff" />
         </TouchableOpacity>
         <View style={styles.titleContainer}> {/* New View for the title */}
           <Text style={styles.headerText}>{title}</Text>
@@ -753,91 +755,7 @@ export default function App() {
         >
           {() => <BottomTabs handleProfileClick={handleProfileClick} />}
         </Stack.Screen>
-        {/* Other Stack Screens */}
         <Stack.Screen
-          name="Events"
-          component={EventsScreen}
-          options={{
-            
-
-            header: () => (
-              <LinearGradient
-                colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
-                style={styles.headerGradient}
-              >
-                <Text style={styles.headerText}>Events</Text>
-              </LinearGradient>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="Gallery"
-          component={GalleryScreen}
-          options={{
-            header: () => (
-              <LinearGradient
-                colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
-                style={styles.headerGradient}
-              >
-                <Text style={styles.headerText}>Gallery</Text>
-              </LinearGradient>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="Articles"
-          component={ArticlesScreen}
-          options={{
-            header: () => (
-              <LinearGradient
-                colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
-                style={styles.headerGradient}
-              >
-                <Text style={styles.headerText}>Articles</Text>
-              </LinearGradient>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="VendorUpdates"
-          component={VendorUpdatesScreen}
-          options={{
-            header: () => (
-              <LinearGradient
-                colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
-                style={styles.headerGradient}
-              >
-                <Text style={styles.headerText}>Vendor Updates</Text>
-              </LinearGradient>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="MyCalendar"
-          component={MyCalendarScreen}
-          options={{
-            header: () => (
-              <LinearGradient
-                colors={['#000f5e', '#003c8f']} // Dark blue gradient colors
-                style={styles.headerGradient}
-              >
-                <Text style={styles.headerText}>My Calendar</Text>
-              </LinearGradient>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="RecursiveApp"
-          options={{ headerShown: false }}
-        >
-          {() => (
-            <NavigationIndependentTree> {/* Wrap in NavigationIndependentTree */}
-              <App /> {/* Recursive rendering */}
-            </NavigationIndependentTree>
-          )}
-        </Stack.Screen>
-
-        {/* <Stack.Screen
           name="Events"
           component={EventsScreen}
           options={{ header: () => renderHeader("Events") }}
@@ -861,7 +779,17 @@ export default function App() {
           name="MyCalendar"
           component={MyCalendarScreen}
           options={{ header: () => renderHeader("MyCalendar") }}
-        /> */}
+        />
+        <Stack.Screen
+          name="RecursiveApp"
+          options={{ headerShown: false }}
+        >
+          {() => (
+            <NavigationIndependentTree> {/* Wrap in NavigationIndependentTree */}
+              <App /> {/* Recursive rendering */}
+            </NavigationIndependentTree>
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
 
       {/* Notification Modal */}
@@ -903,12 +831,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 10,
+    paddingBottom: wp('2%'),
   },
   headerGradient: {
-    height: 60, // Reduced height
+    height: hp('8%'), // Responsive height
     justifyContent: 'center',  // Center vertically
-    paddingHorizontal: 20, // Consistent horizontal padding
+    paddingHorizontal: wp('5%'), // Consistent horizontal padding
   },
   headerContainer: {
     flexDirection: 'row',
@@ -923,7 +851,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
-    fontSize: 18, // Slightly smaller font size
+    fontSize: wp('4.5%'), // Responsive font size
     fontWeight: 'bold',
   },
   modalOverlay: {
@@ -933,8 +861,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    width: 300,
-    padding: 20,
+    width: wp('80%'), // Responsive width
+    padding: wp('5%'),
     backgroundColor: '#fff',
     borderRadius: 12,
     alignItems: 'center',
@@ -945,19 +873,19 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: wp('5%'), // Responsive font size
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 15,
+    marginBottom: wp('3%'),
   },
   modalText: {
-    fontSize: 16,
+    fontSize: wp('4%'), // Responsive font size
     color: '#555',
-    marginBottom: 15,
+    marginBottom: wp('2%'),
   },
   closeButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: hp('1.5%'),
+    paddingHorizontal: wp('5%'),
     backgroundColor: '#007BFF',
     borderRadius: 8,
     alignItems: 'center',
@@ -965,7 +893,7 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: wp('4%'), // Responsive font size
   },
 });
 

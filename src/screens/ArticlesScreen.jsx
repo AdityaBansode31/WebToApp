@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import articlesData from '../data/articles.json';
 
 // Static image mapping for tech-related articles
@@ -44,41 +45,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F9F9F9', // Soft background color similar to YouTube's UI
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingHorizontal: 15,
+    paddingTop: hp('1%'),
+    paddingBottom: hp('1%'),
+    paddingHorizontal: wp('3%'),
   },
   articleContainer: {
-    marginBottom: 20, // Spacing between articles
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+    marginBottom: hp('2%'), // Spacing between articles
+    paddingHorizontal: wp('3%'),
+    paddingVertical: hp('1%'),
     borderRadius: 8, // Rounded corners for each article
+    width: wp('90%'), // Width relative to screen size
+    alignSelf: 'center', // Center the card horizontally
+    maxWidth: 600, // Max width for tablets and larger screens
   },
   articleImage: {
     width: '100%',
-    height: 200,
+    height: hp('25%'),
     borderRadius: 8,
-    marginBottom: 12,
+    marginBottom: hp('1.5%'),
     resizeMode: 'cover',
   },
   textContainer: {
-    paddingBottom: 10,
+    paddingBottom: hp('1%'),
   },
   articleTitle: {
-    fontSize: 18,
+    fontSize: wp('5%'),
     fontWeight: 'bold',
     color: '#333333',
-    marginBottom: 6,
+    marginBottom: hp('0.5%'),
   },
   articleDescription: {
-    fontSize: 14,
+    fontSize: wp('4%'),
     color: '#555555',
-    marginBottom: 8,
+    marginBottom: hp('0.5%'),
   },
   articleContent: {
-    fontSize: 13,
+    fontSize: wp('3.5%'),
     color: '#777777',
-    marginBottom: 12,
+    marginBottom: hp('1%'),
   },
   footerContainer: {
     flexDirection: 'row',
@@ -86,16 +90,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   articleAuthor: {
-    fontSize: 12,
+    fontSize: wp('3.5%'),
     color: '#0081FF',
     fontWeight: 'bold',
   },
   articleDate: {
-    fontSize: 12,
+    fontSize: wp('3.5%'),
     color: '#AAAAAA',
   },
   flatListContent: {
-    paddingBottom: 10,
+    paddingBottom: hp('1%'),
   },
 });
 

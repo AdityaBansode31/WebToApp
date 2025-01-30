@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'; // Gradient library
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const EventsTabs = ({ activeTab, setActiveTab }) => {
   return (
@@ -40,22 +41,22 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 15,
+    paddingVertical: hp('2%'),
     borderRadius: 20,
-    marginHorizontal: 10,
+    marginHorizontal: wp('2%'),
     elevation: 10, // Adds shadow for a raised effect
   },
   tab: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
+    paddingVertical: hp('1.5%'),
+    paddingHorizontal: wp('5%'),
     borderRadius: 10,
-    marginHorizontal: 8,
+    marginHorizontal: wp('2%'),
     alignItems: 'center',
     backgroundColor: '#1E2A47', // Dark blue background for inactive tabs
     opacity: 0.8, // Slight transparency for inactive tabs
   },
   tabText: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     color: '#D1D8E0', // Light gray text for inactive tabs
     fontWeight: '600',
   },
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     opacity: 1, // Full opacity for active tab
     borderBottomWidth: 3,
     borderBottomColor: '#00D8FF', // Blue highlight for active tab
-    paddingVertical: 12,
+    paddingVertical: hp('1.5%'),
   },
   activeTabText: {
     color: '#FFFFFF', // White text for active tab
@@ -72,4 +73,3 @@ const styles = StyleSheet.create({
 });
 
 export default EventsTabs;
-     
