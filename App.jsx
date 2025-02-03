@@ -722,21 +722,22 @@ export default function App() {
   const renderHeader = (title) => {
     return (
       <LinearGradient
-      colors={['#000f5e', '#003c8f']}
-      style={styles.headerGradient}
-    >
-      <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={handleProfileClick} style={styles.menuIcon}>
-          <FontAwesome name="bars" size={wp('6%')} color="#fff" />
-        </TouchableOpacity>
-        <View style={styles.titleContainer}> {/* New View for the title */}
-          <Text style={styles.headerText}>{title}</Text>
+        colors={['#000f5e', '#003c8f']}
+        style={styles.headerGradient}
+      >
+        <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={handleProfileClick} style={styles.menuIcon}>
+            <FontAwesome name="bars" size={wp('6%')} color="#fff" />
+          </TouchableOpacity>
+          <View style={styles.titleContainer}> {/* New View for the title */}
+            <Text style={styles.headerText}>{title}</Text>
+          </View>
+          <View style={{ width: 40 }} />
         </View>
-        <View style={{ width: 40 }} />
-      </View>
-    </LinearGradient>
+      </LinearGradient>
     );
   };
+  
 
   return (
     <NavigationContainer ref={navigationRef}>
